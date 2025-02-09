@@ -5,9 +5,11 @@ This is a simple Flask-based Chat Assistant that interacts with an SQLite databa
 pip install flask
 
 -Setup the Database
+
 python setup_database.py
 
 -Running the Chat Assistant
+
 Start the Flask server:
 python app.py
 
