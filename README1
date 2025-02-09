@@ -1,0 +1,33 @@
+This Flask-based Chat Assistant interacts with an SQLite database to answer various user queries about employees and departments. It supports queries like:
+"Show me all employees in the Sales department."
+"List all employees hired after 2022-01-01."
+
+How It Works:
+The Flask app receives user queries via a /ask endpoint.
+It processes the query and extracts the necessary details (e.g., department name, date).
+The app queries the SQLite database and returns relevant results.
+The response is formatted as JSON and sent back to the user.
+
+How to Run the Project Locally:
+Prerequisites
+Python 3.x installed
+Flask libraries installed
+
+Steps:  
+Install Dependencies
+1.pip install flask
+2.Run the Flask App
+python app.py
+3.Test the Assistant
+http://127.0.0.1:5000/ask
+
+Limitations
+The assistant relies on keyword matching, making it less flexible for varied user queries.
+Queries are predefined, so complex or ambiguous questions may not be answered correctly.
+
+Suggestions
+Integrate spacy or nltk for natural language processing (NLP).
+Implement FastAPI for better performance over Flask.
+Add an interactive frontend UI for better user experience.
+Expand the database schema to store more employee-related data.
+
