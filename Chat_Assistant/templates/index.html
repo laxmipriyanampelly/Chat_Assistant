@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Assistant</title>
+</head>
+<body>
+    <h1>Chat Assistant</h1>
+    
+    <input type="text" id="userInput" placeholder="Ask a question..." />
+    <button onclick="askQuestion()">Ask</button>
+    <p id="response"></p>
+
+    <h3>Try asking:</h3>
+    <ul>
+        <li>Show me all employees in the Engineering department.</li>
+        <li>Who is the manager of the HR department?</li>
+        <li>List all employees hired after 2022-01-01.</li>
+        <li>What is the total salary expense for the Sales department?</li>
+        <li>Who is the highest paid employee in the Engineering department?</li>
+        <li>Who is the lowest paid employee in the Marketing department?</li>
+        <li>What is the average salary in the HR department?</li>
+    </ul>
+
+    <script>
+        function askQuestion() {
+            let userQuery = document.getElementById("userInput").value;
+            fetch("/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: userQuery })
+            })
+            .then(response => response.json())
+            .then(data => document.getElementById("response").innerText = data.response);
+        }
+    </script>
+</body>
+</html>
+
